@@ -1,9 +1,34 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}My blog{% endblock %}
 
-{% block css_files %}{% endblock %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock %}
 
 {% block content %}
-    <h1>Welcome to my blog</h1>
+    <section id="welcome">
+    <header id="main-navigation">
+        <img src="{% static "blog/images/pink.jpg" %}" alt="Anna - The Author of This Blog">
+        <h2>ANNA'S BLOG</h2>
+    </header>
+    <p>Hi, I am Anna</p>
+    </section>
+
+    <section id="latests-posts">
+    <h2>My Latests Thoughts</h2>
+
+    <ul>
+        {% include "blog/includes/post.html" %}
+    </ul>
+    </section>
+
+    <section id="about">
+    <h2>What I Do</h2>
+    <p>
+        I love programming, I love...
+    </p>
+    </section>
 {% endblock %}
